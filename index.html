@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Application</title>
+  <!-- Link the style.css file -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Load the socket.io client script from the server -->
+  <script src="socket.io.js"></script>
+</head>
+<body>
+  <!-- Create a container for the chat interface -->
+  <div class="container">
+    <!-- Create a header for the chat title -->
+    <div class="header">
+      <h1>Chat Application</h1>
+    </div>
+    <!-- Create a main section for the chat messages -->
+    <div class="main">
+      <!-- Create an unordered list for the chat messages -->
+      <ul id="messages"></ul>
+    </div>
+    <!-- Create a footer for the chat input -->
+    <div class="footer">
+      <!-- Create a form for the chat input -->
+      <form id="form">
+        <!-- Create an input field for the chat message -->
+        <input id="input" type="text" placeholder="Type a message" autocomplete="off">
+        <!-- Create a button for the chat send -->
+        <button id="button" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+  <!-- Create a script tag for the chat logic -->
+  <script>
+    // Get the elements from the document
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
+    const button = document.getElementById('button');
+    const messages = document.getElementById('messages');
+
+    // Create a new socket.io client and connect to the server
+    const socket = io();
+
+    // Add an event listener for the submit event of the form
+    form.addEventListener('submit', (event) => {
+      // Prevent the default behavior of the form
+      event.preventDefault();
+
+      // Get the value of the input field
+      const message = input.value;
+
+      // Check if the message is not empty
+      if (message) {
+        // Send the message to the server
+        socket.emit('message', message);
+
+        // Clear the input field
+        input.value = '';
+
+        // Focus the input field
+        input.focus();
+      }
+    });
+
+    // Add an event listener for the message event from the server
+    socket.on('message', (data) => {
+      // Create a new list item for the message
+      const li = document.createElement('li');
+
+      // Set the text content of the list item to the data
+      li.textContent = data;
+
+      // Append the list item to the messages list
+      messages.appendChild(li);
+
+      // Scroll the messages list to the bottom
+      messages.scrollTop = messages.scrollHeight;
+    });
+  </script>
+</body>
+</html>

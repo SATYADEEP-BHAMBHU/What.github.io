@@ -1,0 +1,88 @@
+/* Set the margin and padding of the body to zero */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set the font family and size of the container */
+.container {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Set the background color and height of the header */
+.header {
+  background-color: #333;
+  height: 60px;
+}
+
+/* Set the color, margin, and alignment of the title */
+.header h1 {
+  color: white;
+  margin: 0;
+  line-height: 60px;
+  text-align: center;
+}
+
+/* Set the background color, height, and overflow of the main */
+.main {
+  background-color: #f0f0f0;
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+/* Set the list style, margin, and padding of the messages */
+.messages {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+/* Set the margin, padding, and border of the message items */
+.messages li {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Set the background color and position of the footer */
+.footer {
+  background-color: #eee;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+}
+
+/* Set the margin, padding, and border of the form */
+.form {
+  margin: 10px;
+  padding: 0;
+  border: 0;
+}
+
+/* Set the display, width, height, margin, padding, and border of the input */
+.input {
+  display: inline-block;
+  width: calc(100% - 120px);
+  height: 40px;
+  margin: 0;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Set the display, width, height, margin, padding, border, and color of the button */
+.button {
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+}
